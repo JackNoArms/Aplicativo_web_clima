@@ -15,3 +15,8 @@ Para usar este aplicativo, siga estas etapas:
 ## Recursos
 
 Este aplicativo permite que o usuário insira o nome da cidade e do país e clique em um botão para obter a previsão do tempo atual. A temperatura é exibida em graus Celsius e uma breve descrição do tempo também é fornecida.
+
+
+## Tela principal
+![image](https://github.com/JackNoArms/Aplicativo_web_clima/blob/master/app_web_clima.png)
+
