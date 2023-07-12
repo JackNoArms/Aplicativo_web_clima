@@ -2,7 +2,7 @@ from dash import html, dcc, callback, Input, Output, State
 import pyowm
 
 # Configurações da API do OpenWeatherMap
-API_KEY = '58a9a8bb51204340445039ca055b528a'
+API_KEY = 'Sua chave'
 
 # Criar uma instância do cliente OpenWeatherMap
 owm = pyowm.OWM(API_KEY)
