@@ -1,28 +1,24 @@
+"""Clima Lab — dashboard meteorológico com API ou demonstração fictícia."""
+from __future__ import annotations
+
+import os
+
 import dash
-from dash import html, dcc
-from pages import home
+from dotenv import load_dotenv
 
-app = dash.Dash(__name__, suppress_callback_exceptions=True)
+from pages.home import layout
 
-app.layout = html.Div(
-    children=[
-        dcc.Location(id='url', refresh=False),
-        html.Div(id='page-content')
-    ]
+load_dotenv()
+
+app = dash.Dash(
+    __name__,
+    title="Clima Lab | Panorama meteorológico",
+    suppress_callback_exceptions=True,
+    external_stylesheets=["https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"],
 )
+server = app.server
+app.layout = layout
 
-@app.callback(
-    dash.dependencies.Output('page-content', 'children'),
-    [dash.dependencies.Input('url', 'pathname')]
-)
-def display_page(pathname):
-    if pathname == '/':
-        return home.layout
-    
-    else:
-        return '404'
-    
-        
-
-if __name__ == '__main__':
-    app.run_server(debug=True)
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", "8050"))
+    app.run(debug=False, host="127.0.0.1", port=port)
